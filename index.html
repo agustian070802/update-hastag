@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Changer template danger for spammer</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+</head>
+<body>
+    
+    <div class="container my-5 text-center">
+
+        <figure>
+            <blockquote class="blockquote">
+              <p>Changer hastag for spammer.</p>
+            </blockquote>
+            <figcaption class="blockquote-footer">
+              by <cite title="Source Title">Agusgntng</cite>
+            </figcaption>
+          </figure>
+        
+
+        <div class="container-fluid pb-3 col-8">
+            <div class="container bg-light border border-success rounded-3">
+                <div class="row d-flex justify-content-between">
+                    <div class="btn-group col-12 mt-3 py-2 h-30">
+                        <button type="button" class="btn btn-danger btn btn-outline-secondary text-white" onclick="addHastag()" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="./assets/icons-plus.svg" alt="" srcset="" width="24px" height="24px">
+                        </button>
+                        <input type="text" class="form-control rounded-0 rounded-end" id="input_tagar" required placeholder="Input tagar #fyp">
+                    </div> 
+                </div>
+                <div class="row h-25">
+                    <div class="col-2 mb-1 me-0 align-self-center" id="total_hastag" style="margin-top: -20px;">
+                        Total Hastag <span class="" id="jumlah_hastag">0</span>
+                    </div>
+                    <div class="col-10 scrollbar-pink" id="cont-tagar" 
+                    style="margin-top: -20px; 
+                    margin-left: -30px; 
+                    height: 50px; 
+                    overflow-x: auto; 
+                    white-space: nowrap;
+                    -webkit-overflow-scrolling: touch;">
+                    <!-- <span id="tagar"></span> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+          
+
+        <div class="form-floating">
+            <textarea class="form-control" style="height: 200px; width: 25remrem;" id="text" disabled ></textarea>
+            <label for="text" class="text-danger">Hastag</label>
+        </div>
+    
+        <button onclick="updateHastag()" class="btn btn-danger my-4">Generate Hastag</button>
+    
+        <div class="form-floating">
+            <textarea class="form-control" style="height: 200px; width: 25remrem;" id="texthasil"></textarea>
+            <label for="texthasil" class="text-info">Result New Hastag</label>
+        </div>
+    </div>
+    
+    <script>
+    
+    
+    let tampung_hastag = []
+
+    function addHastag() {
+        var tagar = document.getElementById('input_tagar');
+        if(tagar.value){
+            tampung_hastag.push(tagar.value);
+            tagar.value = '';
+            }else{
+            alert("Tagar masih kosong!")
+        }
+        show();
+    }
+
+
+    function show() {
+        var result_hastag = [];
+        var count_hastag = result_hastag;
+        
+        for (var i=0; i<tampung_hastag.length; i++) {
+            var total_hastag = document.getElementById('text')
+            text.value = tampung_hastag.join(" ");
+        }
+        count_hastag +=  'Total Hastag' + '<span>' + ' ' + tampung_hastag.length + '</span>';
+        var cont_tagar = document.getElementById('cont-tagar');
+        cont_tagar.innerHTML = result_hastag;
+        var total_hastag = document.getElementById('total_hastag')
+        total_hastag.innerHTML = count_hastag;
+    }
+
+
+
+    function updateHastag() {
+    let hastagrandom =  tampung_hastag.sort(() => Math.random() - 0.5)
+    var textArea = document.getElementById('text'); 
+    var textareaHasil = document.getElementById('texthasil');
+    textareaHasil.value = hastagrandom.join(" ")
+}
+    </script>
+</body>
+</html>
